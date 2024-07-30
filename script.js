@@ -13,9 +13,13 @@ const pergunta = [
 {
 enunciado: "Assim que saiu da escola, você se depara com uma nova tecnologia: um chat que consegue responder a todas as dúvidas que uma pessoa pode ter. Além disso, o chat também gera imagens e áudios hiper-realistas. Qual o seu primeiro pensamento?",
 alternativas: [
-"Isso é assustador!",
-"Isso é maravilhoso!"
-],
+{ texto: "Isso é assustador!",
+afirmacao: "afirmação"
+},
+{ texto: "Isso é maravilhoso!",
+afirmacao: "afirmação"
+}
+]
 },
 {
 enunciado: "Pergunta 2",
@@ -27,6 +31,7 @@ alternativas: [
 ];
 let atual = 0;
 let perguntaAtual;
+let historiaFinal = "";
 function mostrapergunta() {
 perguntaAtual = pergunta[atual];
 caixaPergunta.textContent = perguntaAtual.enunciado;
@@ -37,11 +42,20 @@ function mostraAlternativa() {
 for (const alternativa of perguntaAtual.alternativas) {
 const botaoAlternativas = document. createElement("button");
 botaoAlternativas.textContent = alternativa.texto;
-botaoAlternativas.addEventListener("click",
-function () {
+botaoAlternativas.addEventListener("click", function () {
 atual++;
 mostraPergunta();
 });
 caixaAlternativas.appendChild(botaoAlternativas);
 }
 }
+function respostaSelecionada(opcaoSelecionada) {
+const afirmacoes = opcaoSelecionada.afirmação;
+historiaFinal = afirmacoes;
+atual++;
+mostraPergunta();
+}
+
+
+mostrapergunta();
+
