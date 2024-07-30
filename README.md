@@ -1,1 +1,0 @@
-# o-futuro-ia
