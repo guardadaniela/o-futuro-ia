@@ -1,17 +1,123 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>o futuro da IA</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>MISSÃO IA</title>
 </head>
 <body>
-    <div class="caixa-principal">
-    <h1>O FUTURO DA IA NO MUNDO</h1>
-    </div>
-    <div class="caixa-pergunguntas">
-    <div class="caixa-alternativa">
-    <div class="caixa-resultado">
+<div class="caixa-principal">
+<h1> O Futuro da Inteligência Artificial está em suas mãos! </h1>
+</div>
+<div class="caixa-pergunta"> </div>
+<div class="caixa-alternativas">
+<button class="bottom">Isso é assustador</button>
+<button class=" botoes">Isso é maravilhoso</button>
+</div>
+<div class="caixa-resultado"> </div>
+<p class="texto-resultado"> </p>
+<script src="script.js"> </script>
+
+
 </body>
+
 </html>
+
+STYLE.CSS
+
+:root{
+--cor-fundo: #01080E;
+--cor-principal: #0B0D20;
+--cor-secundaria: #212333;
+--cor-destaque: #2BDEFD;
+--cor-texto: #D7F9FF;
+}
+body {
+
+background-color: var(--cor-fundo);
+color: var(--cor-texto);
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+
+}
+.caixa-principal {
+background-color: var(--cor-fundo);
+width: 90%;
+max-width: 600px;
+text-align: center;
+padding: 20px;
+}
+
+h1 {
+color: var(--cor-destaque);
+}
+.caixa-alternativas{
+background-color: var(--cor-fundo);
+width: 90%;
+max-width: 600px;
+text-align: center;
+padding: 20px;
+}
+.bottom
+{border: solid 1px blue;
+border-radius: 20px;
+color: blue;
+background-color: rgb(230, 11, 11);
+transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease;}
+
+.botoes{border: solid 1px blue;
+border-radius: 20px;
+color: blue;
+background-color: rgb(106, 192, 9);
+transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease;}
+
+
+JAVA
+
+const caixaPrincipal = document.querySelector(".caixa-principal");
+
+const caixaPergunta = document.querySelector(".caixa-pergunta");
+
+const caixaalternativas = document.querySelector(".caixa-alternativas");
+
+const caixaResultado = document.querySelector(".caixa-resultado");
+
+const textoResultado = document.querySelector(".texto-resultado");
+
+
+const pergunta = [
+{
+enunciado: "Assim que saiu da escola, você se depara com uma nova tecnologia: um chat que consegue responder a todas as dúvidas que uma pessoa pode ter. Além disso, o chat também gera imagens e áudios hiper-realistas. Qual o seu primeiro pensamento?",
+alternativas: [
+"Isso é assustador!",
+"Isso é maravilhoso!"
+],
+},
+{
+enunciado: "Pergunta 2",
+alternativas: [
+"Alternativa 1",
+"Alternativa 2"
+],
+},
+];
+let atual = 0;
+let perguntaAtual;
+function mostrapergunta() {
+perguntaAtual = pergunta[atual];
+caixaPergunta.textContent = perguntaAtual.enunciado;
+mostraAlternativas();
+}
+function mostraAlternativas() {
+for (const alternativa of perguntaAtual.alternativas)
+{
+const botaoalternativas = document.createElement("button");
+botaoAlternativas.textContent = alternativa;
+caixaAlternativas.appendChild(botaoAlternativas);
+
+}}
+mostrapergunta();
+
